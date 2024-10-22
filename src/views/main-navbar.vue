@@ -25,11 +25,11 @@
         </el-menu-item>
         <el-menu-item index="2">
           <el-badge value="hot">
-            <a href="https://www.renren.io/" target="_blank">官方社区</a>
+            <a href="https://www.renren.io/" target="_blank">a</a>
           </el-badge>
         </el-menu-item>
         <el-submenu index="3">
-          <template slot="title">Git源码</template>
+          <template slot="title">b</template>
           <el-menu-item index="2-1"><a href="https://github.com/renrenio/renren-fast-vue" target="_blank">前端</a></el-menu-item>
           <el-menu-item index="2-2"><a href="https://gitee.com/renrenio/renren-fast" target="_blank">后台</a></el-menu-item>
           <el-menu-item index="2-3"><a href="https://gitee.com/renrenio/renren-generator" target="_blank">代码生成器</a></el-menu-item>
@@ -40,14 +40,14 @@
               <img src="~@/assets/img/avatar.png" :alt="userName">{{ userName }}
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item @click.native="updatePasswordHandle()">修改密码</el-dropdown-item>
-              <el-dropdown-item @click.native="logoutHandle()">退出</el-dropdown-item>
+              <el-dropdown-item @click.native="updatePasswordHandle()">パスワード更新</el-dropdown-item>
+              <el-dropdown-item @click.native="logoutHandle()">ログアウト</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </el-menu-item>
       </el-menu>
     </div>
-    <!-- 弹窗, 修改密码 -->
+    <!-- ポップアップ, パスワードを更新する -->
     <update-password v-if="updatePassowrdVisible" ref="updatePassowrd"></update-password>
   </nav>
 </template>
@@ -81,17 +81,17 @@
       }
     },
     methods: {
-      // 修改密码
+      // パスワードを更新する
       updatePasswordHandle () {
         this.updatePassowrdVisible = true
         this.$nextTick(() => {
           this.$refs.updatePassowrd.init()
         })
       },
-      // 退出
+      // ログアウト
       logoutHandle () {
-        this.$confirm(`确定进行[退出]操作?`, '提示', {
-          confirmButtonText: '确定',
+        this.$confirm(`[ログアウト]を確認しますか?`, 'ヒント', {
+          confirmButtonText: '確認',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {

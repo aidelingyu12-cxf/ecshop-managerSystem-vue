@@ -20,17 +20,6 @@
             <span slot="title">ueditor</span>
           </el-menu-item>
         </el-submenu>
-        <!-- <el-submenu index="TEST">
-          <template slot="title">
-            <icon-svg name="shoucang" class="site-sidebar__menu-icon"></icon-svg>
-            <span>{{menuList.name}}</span>
-          </template>
-          <el-menu-item v-for="menu in menuList.list" index="demo-echarts" :key="menu.menuId" @click="$router.push({  })">
-            <icon-svg name="tubiao" class="site-sidebar__menu-icon"></icon-svg>
-            <span slot="title">{{menu.url}}</span>
-          </el-menu-item>
-        </el-submenu> -->
-
         <sub-menu v-for="menu in menuList" :key="menu.menuId" :menu="menu" :dynamicMenuRoutes="dynamicMenuRoutes">
         </sub-menu>
       </el-menu>

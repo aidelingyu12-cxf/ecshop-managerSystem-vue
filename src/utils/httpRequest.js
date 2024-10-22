@@ -14,10 +14,10 @@ const http = axios.create({
 })
 
 /**
- * 请求拦截
+ * request interceptor
  */
 http.interceptors.request.use(config => {
-  config.headers['token'] = Vue.cookie.get('token') // 请求头带上token
+  config.headers['token'] = Vue.cookie.get('token') // tokenを付ける
   return config
 }, error => {
   return Promise.reject(error)

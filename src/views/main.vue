@@ -3,12 +3,12 @@
     class="site-wrapper"
     :class="{ 'site-sidebar--fold': sidebarFold }"
     v-loading.fullscreen.lock="loading"
-    element-loading-text="拼命加载中">
+    element-loading-text="loading">
     <template v-if="!loading">
-      <main-navbar />
-      <main-sidebar />
+      <MainNavbar />
+      <MainSidebar />
       <div class="site-content__wrapper" :style="{ 'min-height': documentClientHeight + 'px' }">
-        <main-content v-if="!$store.state.common.contentIsNeedRefresh" />
+        <MainContent v-if="!$store.state.common.contentIsNeedRefresh" />
       </div>
     </template>
   </div>
@@ -21,7 +21,7 @@
   export default {
     provide () {
       return {
-        // 刷新
+        // 画面を更新する
         refresh () {
           this.$store.commit('common/updateContentIsNeedRefresh', true)
           this.$nextTick(() => {
